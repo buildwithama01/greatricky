@@ -16,6 +16,7 @@ const projects = [
   { name: "Campora", image: campora, href: "/campora" },
 ];
 
+// ─── Desktop scroll-animation constants ────────────────────────────────────
 // Total scroll distance (in viewport heights) given to EACH image.
 const VH_PER_IMAGE = 70;
 
@@ -34,6 +35,7 @@ const NAV_GAP_VH = 10;
 const STAGE_MIN_PX = 420;
 const STAGE_MAX_PX = 760;
 
+// ─── Desktop WorkCard ──────────────────────────────────────────────────────
 function WorkCard({
   project,
   index,
@@ -74,6 +76,48 @@ function WorkCard({
   );
 }
 
+// ─── Mobile sticky-stack card ──────────────────────────────────────────────
+// Each card is sticky with a slightly higher top offset than the previous so
+// as the user scrolls, new cards slide over and "pin" the cards beneath.
+// CARD_PEEK_PX is how many px of the stacked card peeks above the next one.
+const CARD_PEEK_PX = 56;
+
+function MobileWorkCard({
+  project,
+  index,
+}: {
+  project: { name: string; image: StaticImageData; href: string };
+  index: number;
+}) {
+  // Each successive card sticks a little lower so cards visually stack.
+  // index 0 → top: 64px, index 1 → top: 120px, index 2 → top: 176px …
+  const stickyTop = 64 + index * CARD_PEEK_PX;
+
+  return (
+    <div
+      className="sticky w-full overflow-hidden rounded-2xl shadow-xl"
+      style={{
+        top: stickyTop,
+        zIndex: index + 1,
+      }}
+    >
+      <Link href={project.href} className="block w-full">
+        <div className="relative w-full aspect-video">
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            sizes="100vw"
+            priority={index === 0}
+            className="object-cover"
+          />
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+// ─── Works section ─────────────────────────────────────────────────────────
 export default function Works() {
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -102,8 +146,17 @@ export default function Works() {
           <br />— each one built with intent, not decoration
         </p>
 
+        {/* ── Mobile sticky-stack layout (hidden on md+) ── */}
+        <div className="flex flex-col gap-0 md:hidden">
+          {projects.map((project, index) => (
+            <MobileWorkCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+
+        {/* ── Desktop scroll-driven animation (hidden below md) ── */}
         <div
           ref={ref}
+          className="hidden md:block"
           style={{ height: `${projects.length * VH_PER_IMAGE}vh` }}
         >
           <div

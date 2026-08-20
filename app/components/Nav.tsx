@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
-import { SiBuymeacoffee } from "react-icons/si";
 import { SiBehance } from "react-icons/si";
+import { DribbbleLogoIcon } from "@phosphor-icons/react"
 import rickyLogo from "../assets/ricky-logo.png";
 
 const navItems = [
@@ -15,9 +15,9 @@ const navItems = [
 
 const socialItems = [
   { icon: SiBehance, href: "https://behance.net/greatricky", label: "Behance" },
+  { icon: DribbbleLogoIcon, href: "#", label: "Dribble" },
   { icon: FiInstagram, href: "https://www.instagram.com/_ricky_designs/", label: "Instagram" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/emmanuel-ama-3a3428298/", label: "LinkedIn" },
-  { icon: SiBuymeacoffee, href: "#", label: "Coffee" },
 ];
 
 const Nav = () => {
