@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "../components/Nav";
 
@@ -13,6 +14,28 @@ import DermCover from "../assets/derm.png";
 import ProscratinationCover from "../assets/procrastination.png";
 import Footer from "../components/Footer";
 import NextProject from "../components/NextProject";
+
+export const metadata: Metadata = {
+  title: "Campora — Smart Campus Platform — Ricky",
+  description:
+    "UI/UX design for Campora — a smart campus platform bringing every part of a Nigerian student's academic life into one place, built for how they actually live and study.",
+  openGraph: {
+    title: "Campora — Smart Campus Platform — Ricky",
+    description:
+      "UI/UX design for Campora — a smart campus platform built for Nigerian students.",
+    url: "https://greatricky.vercel.app/campora",
+    siteName: "Ricky Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campora — Smart Campus Platform — Ricky",
+    description:
+      "UI/UX design for Campora — a smart campus platform built for Nigerian students.",
+  },
+};
+
 
 const Campora = () => {
   const dermSecondImages = [{}];

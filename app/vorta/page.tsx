@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "../components/Nav";
 
@@ -20,6 +21,28 @@ import NextProject from "../components/NextProject";
 import VortaCover from "../assets/vorta.png";
 import CamporaCover from "../assets/campora.png";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Vorta — Move Beyond — Ricky",
+  description:
+    "Brand identity and visual system for Vorta, a contemporary sportswear brand engineered for those who move seamlessly between training, work, and the urban landscape.",
+  openGraph: {
+    title: "Vorta — Move Beyond — Ricky",
+    description:
+      "Brand identity and visual system for Vorta, a contemporary sportswear brand engineered for those who move seamlessly between training, work, and the urban landscape.",
+    url: "https://greatricky.vercel.app/vorta",
+    siteName: "Ricky Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vorta — Move Beyond — Ricky",
+    description:
+      "Brand identity and visual system for Vorta sportswear.",
+  },
+};
+
 
 const Vorta = () => {
   const vortaFirstImages = [

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
-import { SiBuymeacoffee } from "react-icons/si";
+import { DribbbleLogoIcon } from "@phosphor-icons/react";
 import rickyLogo from "../assets/ricky-logo.png";
 
 const socials = [
@@ -19,7 +19,7 @@ const socials = [
     href: "https://www.linkedin.com/in/emmanuel-ama-3a3428298/",
     label: "LinkedIn",
   },
-  { icon: SiBuymeacoffee, href: "#", label: "Buy me a coffee" },
+  { icon: DribbbleLogoIcon, href: "https://dribbble.com/greatricky", label: "Dribble" },
 ];
 
 export default function Footer() {

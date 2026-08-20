@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import type { Metadata } from "next";
 import Nav from "../components/Nav";
 
 import procOutdoorBanner from "../assets/proc/procOutdoorBanner.png";
@@ -24,6 +25,28 @@ import VortaCover from "../assets/vorta.png";
 import CamporaCover from "../assets/campora.png";
 import Footer from "../components/Footer";
 import Experience, { CardData } from "../components/Experience";
+
+export const metadata: Metadata = {
+  title: "Procrastination United — Ricky",
+  description:
+    "Brand identity, illustration, and visual system for Procrastination United — a child-development movement disguised as fun, helping kids build confidence, curiosity, and real-world skills.",
+  openGraph: {
+    title: "Procrastination United — Ricky",
+    description:
+      "Brand identity and illustration for Procrastination United — where play shapes greatness.",
+    url: "https://greatricky.vercel.app/procrastination",
+    siteName: "Ricky Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Procrastination United — Ricky",
+    description:
+      "Brand identity and illustration for Procrastination United — where play shapes greatness.",
+  },
+};
+
 
 const Procrastination = () => {
   const lumiCardData: CardData = {

@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "../components/Nav";
 import DERMBoxPackaging from "../assets/derm/DERM Box Packaging.png";
@@ -29,6 +30,26 @@ import VortaCover from "../assets/vorta.png";
 import ProscratinationCover from "../assets/procrastination.png";
 import Footer from "../components/Footer";
 
+export const metadata: Metadata = {
+  title: "DERM Premium Skincare — Ricky",
+  description:
+    "Brand identity, art direction, and web UI/UX for DERM Skincare — a bio-cellular skincare brand at the intersection of dermatological precision and environmental harmony.",
+  openGraph: {
+    title: "DERM Premium Skincare — Ricky",
+    description:
+      "Brand identity, art direction, and web UI/UX for DERM Skincare — a bio-cellular skincare brand at the intersection of dermatological precision and environmental harmony.",
+    url: "https://greatricky.vercel.app/derm",
+    siteName: "Ricky Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DERM Premium Skincare — Ricky",
+    description:
+      "Brand identity, art direction, and web UI/UX for DERM Skincare.",
+  },
+};
 
 
 const Derm = () => {
