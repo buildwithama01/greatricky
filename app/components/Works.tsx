@@ -10,10 +10,34 @@ import procrastination from "../assets/procrastination.png";
 import vorta from "../assets/vorta.png";
 
 const projects = [
-  { name: "Derm", image: derm, href: "/derm" },
-  { name: "Vorta", image: vorta, href: "/vorta" },
-  { name: "Procrastination", image: procrastination, href: "/procrastination" },
-  { name: "Campora", image: campora, href: "/campora" },
+  {
+    name: "Derm",
+    heading: "DERM Premium Skincare",
+    tags: ["Branding", "Web Design"],
+    image: derm,
+    href: "/derm",
+  },
+  {
+    name: "Vorta",
+    heading: "Vorta - Brand Identity & Packaging",
+    tags: ["Branding", "Web Design"],
+    image: vorta,
+    href: "/vorta",
+  },
+  {
+    name: "Procrastination",
+    heading: "Procrastination United",
+    tags: ["Branding", "Illustration"],
+    image: procrastination,
+    href: "/procrastination",
+  },
+  {
+    name: "Campora",
+    heading: "Campora",
+    tags: ["Web Design", "Mobile App Design"],
+    image: campora,
+    href: "/campora",
+  },
 ];
 
 // ─── Desktop scroll-animation constants ────────────────────────────────────
@@ -76,44 +100,48 @@ function WorkCard({
   );
 }
 
-// ─── Mobile sticky-stack card ──────────────────────────────────────────────
-// Each card is sticky with a slightly higher top offset than the previous so
-// as the user scrolls, new cards slide over and "pin" the cards beneath.
-// CARD_PEEK_PX is how many px of the stacked card peeks above the next one.
-const CARD_PEEK_PX = 56;
-
 function MobileWorkCard({
   project,
   index,
 }: {
-  project: { name: string; image: StaticImageData; href: string };
+  project: {
+    name: string;
+    heading: string;
+    tags: string[];
+    image: StaticImageData;
+    href: string;
+  };
   index: number;
 }) {
-  // Each successive card sticks a little lower so cards visually stack.
-  // index 0 → top: 64px, index 1 → top: 120px, index 2 → top: 176px …
-  const stickyTop = 64 + index * CARD_PEEK_PX;
-
   return (
-    <div
-      className="sticky w-full overflow-hidden rounded-2xl shadow-xl"
-      style={{
-        top: stickyTop,
-        zIndex: index + 1,
-      }}
+    <Link
+      href={project.href}
+      className="group block overflow-hidden rounded-[24px] border border-[#d7d0c8] bg-[#f2efe9] shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
     >
-      <Link href={project.href} className="block w-full">
-        <div className="relative w-full aspect-video">
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            sizes="100vw"
-            priority={index === 0}
-            className="object-cover"
-          />
+      <div className="relative h-[280px] w-full overflow-hidden sm:h-[420px]">
+        <Image
+          src={project.image}
+          alt={project.heading}
+          fill
+          sizes="calc(100vw - 2rem)"
+          priority={index < 2}
+          className="object-cover"
+        />
+      </div>
+
+      <div className="bg-[#f3f1ee] px-5 pb-5 pt-6 text-[#171717]">
+        <h3 className="font-(family-name:--font-urbanist) text-[28px] font-[500] leading-snug tracking-[-0.04em]">
+          {project.heading}
+        </h3>
+        <div className="mt-2 flex flex-wrap gap-2 text-[18px] text-[#171717]/75">
+          {project.tags.map((tag) => (
+            <span key={tag} className="font-(family-name:--font-urbanist)">
+              {tag}
+            </span>
+          ))}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 
@@ -147,9 +175,13 @@ export default function Works() {
         </p>
 
         {/* ── Mobile sticky-stack layout (hidden on md+) ── */}
-        <div className="flex flex-col gap-0 md:hidden">
+        <div className="flex flex-col gap-6 md:hidden">
           {projects.map((project, index) => (
-            <MobileWorkCard key={project.name} project={project} index={index} />
+            <MobileWorkCard
+              key={project.name}
+              project={project}
+              index={index}
+            />
           ))}
         </div>
 
