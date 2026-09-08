@@ -5,13 +5,19 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 import { DribbbleLogoIcon } from "@phosphor-icons/react";
+import { SiBehance } from "react-icons/si";
 import rickyLogo from "../assets/ricky-logo.png";
 
 const socials = [
-  { icon: FiMail, href: "mailto:greatricky@gmail.com", label: "Email" },
+  { icon: SiBehance, href: "https://behance.net/greatricky", label: "Behance" },
+  {
+    icon: DribbbleLogoIcon,
+    href: "https://dribbble.com/greatricky",
+    label: "Dribble",
+  },
   {
     icon: FiInstagram,
-    href: "https://www.instagram.com/_ricky_designs/",
+    href: "https://www.instagram.com/greatricky7",
     label: "Instagram",
   },
   {
@@ -19,7 +25,6 @@ const socials = [
     href: "https://www.linkedin.com/in/emmanuel-ama-3a3428298/",
     label: "LinkedIn",
   },
-  { icon: DribbbleLogoIcon, href: "https://dribbble.com/greatricky", label: "Dribble" },
 ];
 
 export default function Footer() {

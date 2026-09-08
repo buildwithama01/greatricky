@@ -17,10 +17,14 @@ const navItems = [
 
 const socialItems = [
   { icon: SiBehance, href: "https://behance.net/greatricky", label: "Behance" },
-  { icon: DribbbleLogoIcon, href: "https://dribbble.com/greatricky", label: "Dribble" },
+  {
+    icon: DribbbleLogoIcon,
+    href: "https://dribbble.com/greatricky",
+    label: "Dribble",
+  },
   {
     icon: FiInstagram,
-    href: "https://www.instagram.com/_ricky_designs/",
+    href: "https://www.instagram.com/greatricky7",
     label: "Instagram",
   },
   {
